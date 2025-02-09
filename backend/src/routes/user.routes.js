@@ -1,11 +1,13 @@
-import express from "express"
-import {createUser, loginUser} from "../controllers/user.controller.js"
+import express from "express";
+import { createUser, loginUser } from "../controllers/user.controller.js";
 
-export const userRouter = express.Router();
+// create a new router
+const router = express.Router();
 
-userRouter.post('/singup', createUser);
-userRouter.use('/signin', loginUser);
+// ROUTES:
 
+// to create a new user : POST /api/create
+router.route("/signup").post(createUser);
 
-
-
+// export the router
+export { router };
